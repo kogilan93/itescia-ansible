@@ -3,9 +3,19 @@
   become_method: sudo
   tasks:
     - name: ajout adminitescia
-      user: name=adminitescia
+      user: name={{ item }}
+      with_items:
+       - kogi1
+       - invite
+       - presta
     - name: installation paquet
       apt: name={{ item }} update_cache=yes state=latest
       with_items:
        - vim
        - htop
+    - name: Ajout de la cle ssh
+      authorized_key: user={{ item }} key="{{ lookup('file', '~/.ssh/id_rsa.pub')}}"
+      with_items:
+       - kogi1
+       - invite
+       - presta

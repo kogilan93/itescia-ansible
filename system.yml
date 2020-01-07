@@ -3,7 +3,7 @@
   become_method: sudo
   tasks:
     - name: ajout adminitescia
-      user: name={{ item }}
+      user: name={{ item }} shell=/bin/bash
       with_items:
        - kogi1
        - invite

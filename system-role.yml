@@ -1,0 +1,5 @@
+- name: Installation role
+  become: true
+  hosts: all
+  roles:
+   - system

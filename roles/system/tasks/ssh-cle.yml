@@ -1,5 +1,5 @@
 - name: Ajout de la cle ssh
-  authorized_key: user={{ item }} key="{{ lookup('file', '~/.ssh/id_rsa.pub')}}"
+  authorized_key: user={{ item }} key="{{ lookup('file', '~/.ssh/id_{{ item }}.pub')}}"
   with_items:
    - kogi1
    - invite
